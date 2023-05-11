@@ -15,6 +15,7 @@
 // Selezione outputs
 const outputRandomNum = document.getElementById("outputRandomNum");
 const outputCountdown = document.getElementById("countdown");
+const outputResult = document.getElementById("outputResult");
 // Creazione Arrays
 const randomNumArr = [];
 const InputArr =[];
@@ -40,10 +41,13 @@ const countdown = setInterval(function(){
 
         //Output risulato (console)
         if (rightNumArr.length === randomNumArr.length) {
+            outputResult.innerHTML = `Hai ricordato tutti i numeri! ${rightNumArr}`;
             console.log(`Hai ricordato tutti i numeri! ${rightNumArr}`);
         }else if (rightNumArr.length > 0) {
+            outputResult.innerHTML = `Hai ricordato ${rightNumArr.length} numeri: ${rightNumArr}`;
             console.log(`Hai ricordato ${rightNumArr.length} numeri: ${rightNumArr}`);   
         }else{
+            outputResult.innerHTML = `Non te ne sei ricordato nemmeno uno!`;
             console.log(`Non te ne sei ricordato nemmeno uno!`);            
         }
     }
