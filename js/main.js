@@ -20,14 +20,8 @@ const randomNumArr = [];
 const InputArr =[];
 const rightNumArr = [];
 
-
-// Generazione 5 numeri casuali (stabiliamo che siano numeri interi compresi tra 1 e 100)
-for (let i = 0; randomNumArr.length < 5; i++) {
-    let randomNum = Math.floor(Math.random() * 100) + 1
-    if (!randomNumArr.includes(randomNum)) {
-        randomNumArr.push(randomNum);
-    }
-}
+// Generazione di un array con 5 numeri casuali non ripetuti tra 1 e 100 
+randomNumFunc(5);
 
 // Visualizzazione numeri in pagina 
 outputRandomNum.innerHTML = randomNumArr;
@@ -48,11 +42,17 @@ const countdown = setInterval(function(){
 }, 1000);
 
 
-
-
-
-
 /* FUNZIONI */
+
+// Generazione di array di "num" numeri casuali (stabiliamo che siano numeri interi compresi tra 1 e 100)
+function randomNumFunc(howManyNums) {
+    for (let i = 0; randomNumArr.length < howManyNums; i++) {
+        let randomNum = Math.floor(Math.random() * 100) + 1
+        if (!randomNumArr.includes(randomNum)) {
+            randomNumArr.push(randomNum);
+        }
+    }
+}
 
 // Generazione array di un numero stabilito di inputs
 function InputArrFunc(howManyInputs) {
