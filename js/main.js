@@ -12,20 +12,19 @@
 
 /* SVOLGIMENTO */
 
-// Outputs
+// Selezione outputs
 const outputRandomNum = document.getElementById("outputRandomNum");
 const outputCountdown = document.getElementById("countdown");
-// Arrays
+// Creazione Arrays
 const randomNumArr = [];
 const InputArr =[];
 const rightNumArr = [];
 
 // Generazione di un array con 5 numeri casuali non ripetuti tra 1 e 100 
 randomNumFunc(5);
-
 // Visualizzazione numeri in pagina 
 outputRandomNum.innerHTML = randomNumArr;
-console.log(randomNumArr);
+console.log("Numeri casuali: " + randomNumArr);
 
 //Timer 30 secondi (setInterval perché voglio far vedere il tempo che manca nel countdown)
 let countdownCounter = 3;
@@ -37,8 +36,17 @@ const countdown = setInterval(function(){
         console.log("TEMPO SCADUTO! Vediamo cosa ti ricordi...");
         clearInterval(countdown);
         InputArrFunc(5);
-        commonElemArrFunc(randomNumArr, InputArr);      
+        commonElemArrFunc(randomNumArr, InputArr);
+
+        //Output risulato (console)
+        if (rightNumArr.length === randomNumArr.length) {
+            console.log(`Hai ricordato tutti i numeri! ${rightNumArr}`);
+        }else if (rightNumArr.length > 0) {
+            console.log(`Hai ricordato ${rightNumArr.length} numeri: ${rightNumArr}`);   
+        }else{
+            console.log(`Non te ne sei ricordato nemmeno uno!`);            
         }
+    }
 }, 1000);
 
 
@@ -60,7 +68,7 @@ function InputArrFunc(howManyInputs) {
        let inputElement = parseInt(prompt("inserisci un numero: "))
        InputArr.push(inputElement);
     }
-    console.log(InputArr);
+    console.log("Inseriti dall'utente: " + InputArr);
     return InputArr;
 };
 
@@ -72,6 +80,6 @@ function commonElemArrFunc(arr1, arr2) {
             rightNumArr.push(arr2[i]);
         }
     }
-    console.log(rightNumArr);
+    console.log("Numeri corretti: " + rightNumArr);
     return rightNumArr
 };
