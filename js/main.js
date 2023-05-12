@@ -87,3 +87,10 @@ function commonElemArrFunc(arr1, arr2) {
     console.log("Numeri corretti: " + rightNumArr);
     return rightNumArr
 };
+
+
+/* Refactoring */
+
+// Se uso PROMPT come input --> Unire funzioni InputArrFunc e commonElemArrFunc in un unico ciclo (saltare un passaggio e creare un array meno)
+
+// Usare setTimout
